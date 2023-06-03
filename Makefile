@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	GO111MODULE=on go build -o build/zsh-alias-matcher ./cmd/zsh-alias-matcher
+	GO111MODULE=on go build ./cmd/zsh-alias-matcher
 
 .PHONY: test
 test:
@@ -8,4 +8,4 @@ test:
 
 .PHONY: clean
 clean:
-	rm -f build/*
+	rm -f zsh-alias-matcher
