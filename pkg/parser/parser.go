@@ -1,10 +1,10 @@
 package parser
 
-import "github.com/sei40kr/zsh-fast-alias-tips/model"
+import "github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
 
 func Parse(line string) model.AliasDef {
 	alias := make([]rune, 0, 1024)
-	abbr := make([]rune, 0, 1024)
+	expanded := make([]rune, 0, 1024)
 
 	afterEscape := false
 	inQuote := false
@@ -25,11 +25,11 @@ func Parse(line string) model.AliasDef {
 		} else if !inRightExp {
 			alias = append(alias, aRune)
 		} else {
-			abbr = append(abbr, aRune)
+			expanded = append(expanded, aRune)
 		}
 
 		afterEscape = false
 	}
 
-	return model.AliasDef{Name: string(alias), Abbr: string(abbr)}
+	return model.AliasDef{Name: string(alias), Expanded: string(expanded)}
 }

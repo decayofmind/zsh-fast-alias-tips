@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+---
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - main: cmd/zsh-alias-matcher/main.go
+    binary: zsh-alias-matcher
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
