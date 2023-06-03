@@ -1,6 +1,3 @@
-# fast-alias-tips.plugin.zsh
-# author: Seong Yong-ju <sei40kr@gmail.com>
-
 : ${ZSH_FAST_ALIAS_TIPS_PREFIX:="💡 $(tput bold)"}
 : ${ZSH_FAST_ALIAS_TIPS_SUFFIX:="$(tput sgr0)"}
 
@@ -10,7 +7,7 @@ __fast_alias_tips_preexec() {
 
     local first="$(cut -d' ' -f1 <<<"$cmd")"
 
-    local suggested="$(alias | "def-matcher" "$cmd_expanded")"
+    local suggested="$(alias | "zsh-alias-matcher" "$cmd_expanded")"
     if [[ "$suggested" == '' ]]; then
         return
     fi
