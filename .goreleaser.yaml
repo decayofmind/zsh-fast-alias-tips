@@ -4,6 +4,10 @@ before:
   hooks:
     - go mod tidy
 
+archives:
+  - id: default
+    format: binary
+
 builds:
   - main: cmd/zsh-alias-matcher/main.go
     binary: zsh-alias-matcher
@@ -20,3 +24,10 @@ checksum:
 
 changelog:
   sort: asc
+
+release:
+  extra_files:
+    - glob: ./zsh-fast-alias-tips.plugin.zsh
+
+source:
+  enabled: false
