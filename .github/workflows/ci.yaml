@@ -7,7 +7,6 @@ permissions:
   pull-requests: read
 jobs:
   ci:
-    name: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
