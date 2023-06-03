@@ -3,7 +3,7 @@ package parser
 import (
 	"testing"
 
-	"github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
+	"github.com/decayofmind/zsh-fast-alias-tips/internal/model"
 	"github.com/stretchr/testify/assert"
 )
 

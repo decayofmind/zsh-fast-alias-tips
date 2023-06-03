@@ -6,9 +6,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/decayofmind/zsh-fast-alias-tips/pkg/matcher"
-	"github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
-	"github.com/decayofmind/zsh-fast-alias-tips/pkg/parser"
+	"github.com/decayofmind/zsh-fast-alias-tips/internal/matcher"
+	"github.com/decayofmind/zsh-fast-alias-tips/internal/model"
+	"github.com/decayofmind/zsh-fast-alias-tips/internal/parser"
 )
 
 func main() {
@@ -38,8 +38,12 @@ func main() {
 	}
 
 	command := os.Args[1]
-	match := matcher.Match(aliases, command)
+	match, isFullMatch := matcher.Match(aliases, command)
 	if match != nil {
-		fmt.Printf("%s%s\n", match.Name, command[len(match.Expanded):])
+		if isFullMatch {
+			fmt.Printf("%s\n", match.Name)
+		} else {
+			fmt.Printf("%s%s\n", match.Name, command[len(match.Expanded):])
+		}
 	}
 }

@@ -5,21 +5,26 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
+	"github.com/decayofmind/zsh-fast-alias-tips/internal/model"
 )
 
-func Match(defs []model.AliasDef, command string) *model.AliasDef {
+func Match(defs []model.AliasDef, command string) (*model.AliasDef, bool) {
 	sort.Slice(defs, func(i, j int) bool {
 		return len(defs[j].Expanded) <= len(defs[i].Expanded)
 	})
 
 	var candidate model.AliasDef
+	isFullMatch := false
 
 	for {
 		var match model.AliasDef
 		for _, def := range defs {
 
-			if command == def.Expanded || strings.HasPrefix(command, def.Expanded) {
+			if command == def.Expanded {
+				match = def
+				isFullMatch = true
+				break
+			} else if strings.HasPrefix(command, def.Expanded) {
 				match = def
 				break
 			}
@@ -35,8 +40,8 @@ func Match(defs []model.AliasDef, command string) *model.AliasDef {
 	}
 
 	if candidate != (model.AliasDef{}) {
-		return &candidate
+		return &candidate, isFullMatch
 	}
 
-	return nil
+	return nil, isFullMatch
 }
