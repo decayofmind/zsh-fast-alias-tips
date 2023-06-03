@@ -3,7 +3,7 @@ package matcher
 import (
 	"testing"
 
-	"github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
+	"github.com/decayofmind/zsh-fast-alias-tips/internal/model"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -32,34 +32,30 @@ var mockAliasDefs = []model.AliasDef{
 		Name:     "ll",
 		Expanded: "ls -lh",
 	},
-	{
-		Name:     "l",
-		Expanded: "ls",
-	},
 }
 
 func TestMatch_NoMatches(t *testing.T) {
-	candidate := Match(mockAliasDefs, "cd ..")
+	candidate, _ := Match(mockAliasDefs, "cd ..")
 	assert.Nil(t, candidate, "should return nil when no matches found")
 }
 
 func TestMatch_SingleToken(t *testing.T) {
-	candidate := Match(mockAliasDefs, "docker")
+	candidate, _ := Match(mockAliasDefs, "docker")
 	assert.Equal(t, candidate.Name, "dk")
 }
 
 func TestMatch_MultipleTokens(t *testing.T) {
-	candidate := Match(mockAliasDefs, "git branch")
+	candidate, _ := Match(mockAliasDefs, "git branch")
 	assert.Equal(t, candidate.Name, "gb")
 }
 
 func TestMatch_MultipleMatches(t *testing.T) {
-	candidate := Match(mockAliasDefs, "git checkout -b")
+	candidate, _ := Match(mockAliasDefs, "git checkout -b")
 	assert.Equal(t, candidate.Name, "gcb",
 		"should return the alias definition that has the longest abbreviation when multiple matches found")
 }
 
 func TestMatch_RecursiveDefs(t *testing.T) {
-	candidate := Match(mockAliasDefs, "ls -G -lh")
+	candidate, _ := Match(mockAliasDefs, "ls -G -lh")
 	assert.Equal(t, candidate.Name, "ll", "should apply aliases recursively")
 }

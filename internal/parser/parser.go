@@ -1,6 +1,6 @@
 package parser
 
-import "github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
+import "github.com/decayofmind/zsh-fast-alias-tips/internal/model"
 
 func Parse(line string) model.AliasDef {
 	alias := make([]rune, 0, 1024)
