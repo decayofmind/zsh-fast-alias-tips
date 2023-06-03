@@ -6,7 +6,8 @@ before:
 
 archives:
   - id: default
-    format: binary
+    files:
+      - zsh-fast-alias-tips.plugin.zsh
 
 builds:
   - main: cmd/zsh-alias-matcher/main.go
@@ -24,10 +25,6 @@ checksum:
 
 changelog:
   sort: asc
-
-release:
-  extra_files:
-    - glob: ./zsh-fast-alias-tips.plugin.zsh
 
 source:
   enabled: false
