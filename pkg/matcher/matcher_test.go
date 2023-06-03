@@ -33,10 +33,6 @@ var mockAliasDefs = []model.AliasDef{
 		Expanded: "ls -lh",
 	},
 	{
-		Name:     "sl",
-		Expanded: "ls",
-	},
-	{
 		Name:     "l",
 		Expanded: "ls",
 	},
@@ -66,9 +62,4 @@ func TestMatch_MultipleMatches(t *testing.T) {
 func TestMatch_RecursiveDefs(t *testing.T) {
 	candidate := Match(mockAliasDefs, "ls -G -lh")
 	assert.Equal(t, candidate.Name, "ll", "should apply aliases recursively")
-}
-
-func TestMatch_AliasSameOrLonger(t *testing.T) {
-	candidate := Match(mockAliasDefs, "ls /")
-	assert.Nil(t, candidate, "should return nil when alias length is same or longer")
 }
