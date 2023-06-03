@@ -21,7 +21,7 @@ nothing to commit, working tree clean
 
 ## Install
 
-### Install with [zinit](https://github.com/zdharma/zinit) (recommended)
+### Install with [zinit](https://github.com/zdharma/zinit)
 
 ```sh
 zinit ice from'gh-r' as'program'
