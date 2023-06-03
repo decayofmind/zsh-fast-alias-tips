@@ -1,4 +1,4 @@
-module github.com/sei40kr/zsh-fast-alias-tips
+module github.com/decayofmind/zsh-fast-alias-tips
 
 go 1.20
 

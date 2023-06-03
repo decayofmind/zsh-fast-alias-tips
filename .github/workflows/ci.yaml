@@ -1,0 +1,27 @@
+---
+on:
+  - pull_request
+
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  ci:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-go@v4
+        with:
+          go-version-file: go.mod
+          cache: false
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          only-new-issues: true
+
+      - name: Test
+        run: make test

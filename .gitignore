@@ -8,7 +8,7 @@
 *.dll
 *.so
 *.dylib
-/build/def-matcher
+/build/
 
 # Test binary, built with `go test -c`
 *.test

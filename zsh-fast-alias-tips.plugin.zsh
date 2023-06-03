@@ -1,8 +1,8 @@
 # fast-alias-tips.plugin.zsh
 # author: Seong Yong-ju <sei40kr@gmail.com>
 
-: ${FAST_ALIAS_TIPS_PREFIX:="💡 $(tput bold)"}
-: ${FAST_ALIAS_TIPS_SUFFIX:="$(tput sgr0)"}
+: ${ZSH_FAST_ALIAS_TIPS_PREFIX:="💡 $(tput bold)"}
+: ${ZSH_FAST_ALIAS_TIPS_SUFFIX:="$(tput sgr0)"}
 
 __fast_alias_tips_preexec() {
     local cmd="$1"
@@ -20,7 +20,7 @@ __fast_alias_tips_preexec() {
         return
     fi
 
-    echo "${FAST_ALIAS_TIPS_PREFIX}${suggested}${FAST_ALIAS_TIPS_SUFFIX}"
+    echo "${ZSH_FAST_ALIAS_TIPS_PREFIX}${suggested}${ZSH_FAST_ALIAS_TIPS_SUFFIX}"
 }
 
 autoload -Uz add-zsh-hook

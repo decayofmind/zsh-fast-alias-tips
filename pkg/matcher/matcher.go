@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/sei40kr/zsh-fast-alias-tips/model"
+	"github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
 )
 
 func Match(defs []model.AliasDef, command string) *model.AliasDef {

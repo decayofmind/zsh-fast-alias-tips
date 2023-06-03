@@ -3,7 +3,7 @@ package matcher
 import (
 	"testing"
 
-	"github.com/sei40kr/zsh-fast-alias-tips/model"
+	"github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
 	"github.com/stretchr/testify/assert"
 )
 

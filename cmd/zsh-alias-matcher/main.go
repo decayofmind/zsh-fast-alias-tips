@@ -6,13 +6,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sei40kr/zsh-fast-alias-tips/matcher"
-	"github.com/sei40kr/zsh-fast-alias-tips/model"
-	"github.com/sei40kr/zsh-fast-alias-tips/parser"
+	"github.com/decayofmind/zsh-fast-alias-tips/pkg/matcher"
+	"github.com/decayofmind/zsh-fast-alias-tips/pkg/model"
+	"github.com/decayofmind/zsh-fast-alias-tips/pkg/parser"
 )
-
-// def-matcher.go
-// author: Seong Yong-ju <sei40kr@gmail.com>
 
 func main() {
 	if len(os.Args) != 2 {

@@ -1,9 +1,11 @@
-.PHONY: all
-all:
-	go build -o build/def-matcher def-matcher.go
+.PHONY: build
+build:
+	GO111MODULE=on go build -o build/zsh-alias-matcher ./cmd/zsh-alias-matcher
+
 .PHONY: test
 test:
-	go test -v def-matcher.go def-matcher_test.go
+	go test -v -race -buildvcs ./...
+
 .PHONY: clean
 clean:
-	rm -f build/def-matcher
+	rm -f build/*
