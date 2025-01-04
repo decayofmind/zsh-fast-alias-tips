@@ -28,7 +28,7 @@ nothing to commit, working tree clean
 From GitHub Releases (__RECOMMENDED__):
 
 ```sh
-zinit ice from'gh-r' as'program'
+zinit ice from'gh-r' as 'program'
 zinit light decayofmind/zsh-fast-alias-tips
 ```
 
@@ -41,11 +41,11 @@ zinit light decayofmind/zsh-fast-alias-tips
 
 ## ⚙️  Configuration
 
-| Variable                       | Default value         | Description                                     |
-| :--                            | :-------------------- | :---------------------------------------------- |
-| `ZSH_FAST_ALIAS_TIPS_EXCLUDES` | ` `                   | List of aliases to exclude (separated by space) |
-| `ZSH_FAST_ALIAS_TIPS_PREFIX`   | `"💡 $(tput bold)"`   | The prefix of the Tips                          |
-| `ZSH_FAST_ALIAS_TIPS_SUFFIX`   | `"$(tput sgr0)"`      | The suffix of the Tips                          |
+| Variable                       | Default value      | Description                                     |
+| :----------------------------- | :----------------- | :---------------------------------------------- |
+| `ZSH_FAST_ALIAS_TIPS_EXCLUDES` | ` `                | List of aliases to exclude (separated by space) |
+| `ZSH_FAST_ALIAS_TIPS_PREFIX`   | `"💡 $(tput bold)"` | The prefix of the Tips                          |
+| `ZSH_FAST_ALIAS_TIPS_SUFFIX`   | `"$(tput sgr0)"`   | The suffix of the Tips                          |
 
 ## Differences from sei40kr/zsh-fast-alias-tips <a id='differences'></a>
 
